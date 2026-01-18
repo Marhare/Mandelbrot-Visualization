@@ -12,10 +12,10 @@ x=np.linspace(-2,2,3000)
 y=np.linspace(-2,2,3000)
 
 
-#Definimos una función para interar
-#f(z)=z**2+c
+#Definimos dos funciones para interar
 b=rnd.random()
 c=rnd.random()
+#Estudiaremos el conjunto que consiste en ir intercambiando en cada iteración los coeficientes "b" y "c".
 #Ahora definimos una función que realiza el proceso iterativo y cuenta cuantos pasos tarda la funcion en un punto en diverger (bueno, que sea mayor en modulo a 4 pero eso es practicamente infinito)
 @njit
 def julia(c):
@@ -33,7 +33,7 @@ def julia(c):
     return count
 
 @njit(parallel=True)
-def mandelbrot_set(x,y):
+def julia_set(x,y):
     m = np.zeros((len(x),len(y)))
     for i in range(len(x)):
         for j in range(len(y)):
@@ -45,7 +45,7 @@ def mandelbrot_set(x,y):
 #m se va a encargar de contar precisamente las interacciones de cada punto, que luego expresaremos mediante un mapa de calor
 
 figure(figsize=(10,10), dpi=300)
-m = mandelbrot_set(x,y)
+m = julia_set(x,y)
 title("Iteración compleja aleatoria: a= %.1f, b=%.1f"%(b,c))
 
 # Color
@@ -80,4 +80,5 @@ filename = os.path.join(carpeta, base_name + ".png")
 
 print(f"Guardando en: {filename}")
 mpimg.imsave(filename, colored)
-print("✅ Imagen guardada con éxito.")
+
+print(" Imagen guardada con éxito.")

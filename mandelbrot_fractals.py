@@ -13,9 +13,9 @@ def mandelbrot(c):
     count = 0
     z = c
     for a in range(1000):
-        z = z**2 + c
+        z = z**2 + c        ##Ley de recurrencia 
         count += 1
-        if abs(z) > 3:
+        if abs(z) > 3:        ##Límite para determinar que la serie diverge
             break
     return count
 
@@ -42,7 +42,8 @@ timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 filename = f"mandelbrot_{timestamp}.png"
 mpimg.imsave(filename, colored)
 
-print(f"✅ Imagen guardada: {filename}")
+print(f" Imagen guardada: {filename}")
 
 figure()
+
 plot(x,y)

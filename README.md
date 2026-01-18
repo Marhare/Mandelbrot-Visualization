@@ -1,2 +1,2 @@
 # Mandelbrot-Visualization
-My academic projects combining physics, math and programming
+Numerical visualization of the Mandelbrot and Julia sets using Python to explore convergence behavior in complex dynamical systems.
